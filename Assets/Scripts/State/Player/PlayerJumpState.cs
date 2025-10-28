@@ -13,6 +13,8 @@ public class PlayerJumpState : PlayerState
     public override void Enter()
     {
         base.Enter();
+        
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.playerJumpSFX);
 
         player.doublejump = !player.doublejump;
         rb.velocity = new Vector2(rb.velocity.x, player.jumpForce);

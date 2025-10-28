@@ -12,11 +12,15 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioSource sfxSource;
 
     [Header("---Audio Clip---")]
+    [Header("---Gameplay---")]
     public AudioClip mainMenuBackgroundMusic;
     public AudioClip gameSceneBackgroundMusic;
     public AudioClip buttonClickSFX;
+    [Header("---Player---")]
     public AudioClip playerJumpSFX;
     public AudioClip playerHurtSFX;
+    public AudioClip playerShootSFX;
+    public AudioClip playerDashSFX;
 
     private AudioManager()
     {
@@ -38,12 +42,25 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        musicSource.clip = mainMenuBackgroundMusic;
+
+    }
+
+    public void PlayMusic(AudioClip clip)
+    {
+        musicSource.clip = clip;
+        if (clip.Equals(gameSceneBackgroundMusic))
+            musicSource.volume = 0.5f;
+        musicSource.loop = true;
         musicSource.Play();
     }
 
     public void PlaySFX(AudioClip clip)
     {
+        if (clip.Equals(buttonClickSFX))
+            sfxSource.volume = 0.15f;
+        else
+            sfxSource.volume = 1f;
         sfxSource.PlayOneShot(clip);
     }
+
 }

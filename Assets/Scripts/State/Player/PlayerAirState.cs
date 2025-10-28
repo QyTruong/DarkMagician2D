@@ -12,7 +12,6 @@ public class PlayerAirState : PlayerState
     public override void Enter()
     {
         base.Enter();
-        stateTimer = player.coyoteTimer;
     }
 
     public override void Exit()
@@ -28,7 +27,7 @@ public class PlayerAirState : PlayerState
         if (xInput != 0)
             player.SetVelocity(xInput * player.moveSpeed * 0.8f, rb.velocity.y);
 
-        if (Input.GetKeyDown(KeyCode.Space) && (player.doublejump == true || stateTimer <= 0)) 
+        if (Input.GetKeyDown(KeyCode.Space) && player.doublejump == true) 
             stateMachine.ChangeState(player.jumpState);
 
         if (player.GroundCheck())

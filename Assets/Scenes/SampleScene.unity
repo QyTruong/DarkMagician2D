@@ -637,7 +637,6 @@ MonoBehaviour:
   facingDir: 1
   facingRight: 1
   doublejump: 0
-  coyoteTimer: 0.2
   moveSpeed: 15
   jumpForce: 20
   dashSpeed: 50
@@ -8847,7 +8846,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage:
-    _baseValue: 30
+    _baseValue: 0
     modifiedValues: 
   defence:
     _baseValue: 0

@@ -17,7 +17,6 @@ public class Player : Entity
 
     [Header("Player info")]
     public bool doublejump;
-    public float coyoteTimer;
     public float moveSpeed;
     public float jumpForce;
     public float dashSpeed;
@@ -69,18 +68,25 @@ public class Player : Entity
     private void CheckAttackInput()
     {
         if (Input.GetKeyDown(KeyCode.L))
+        {
             orb.Shoot(GetShootDirection());
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.playerShootSFX);
+        }
     }
 
     private Vector2 GetShootDirection()
     {
         Vector2 dir = new Vector2(facingDir, 0);
 
+        float angle = 90f;
         if (Input.GetKey(KeyCode.W))
-            dir = Quaternion.Euler(0, 0, facingDir > 0 ? 35f : -35f) * new Vector2(facingDir, 0);
-        else if (Input.GetKey(KeyCode.S))
-            dir = Quaternion.Euler(0, 0, facingDir > 0 ? -35f : 35f) * new Vector2(facingDir, 0);
-
+        {
+            dir = Quaternion.Euler(0, 0, angle) * new Vector2(1, 0);
+            if (Input.GetKey(KeyCode.D))
+                dir = Quaternion.Euler(0, 0, angle - 35f) * new Vector2(1, 0);
+            else if (Input.GetKey(KeyCode.A))
+                dir = Quaternion.Euler(0, 0, angle + 35f) * new Vector2(1, 0);
+        }
         return dir;
     }
 
@@ -88,6 +94,8 @@ public class Player : Entity
     {
         if (Input.GetKeyDown(KeyCode.LeftShift) && _dashTimer <= 0)
         {
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.playerDashSFX);
+
             _dashDir = Input.GetAxisRaw("Horizontal");
 
             if (_dashDir == 0)

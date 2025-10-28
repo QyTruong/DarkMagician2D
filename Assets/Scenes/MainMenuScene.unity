@@ -250,10 +250,12 @@ MonoBehaviour:
   musicSource: {fileID: 656363800}
   sfxSource: {fileID: 338977841}
   mainMenuBackgroundMusic: {fileID: 8300000, guid: fc5af015011ea3745b7f78ea1dd1049f, type: 3}
-  gameSceneBackgroundMusic: {fileID: 0}
+  gameSceneBackgroundMusic: {fileID: 8300000, guid: 0ad591428b0c18c4da51fe3bf98dbc63, type: 3}
   buttonClickSFX: {fileID: 8300000, guid: 15e9f634e944e104dab8ac20d84b5e12, type: 3}
-  playerJumpSFX: {fileID: 0}
-  playerHurtSFX: {fileID: 0}
+  playerJumpSFX: {fileID: 8300000, guid: 4e349dc959014a845b9aa317d1c2b7f0, type: 3}
+  playerHurtSFX: {fileID: 8300000, guid: 7c47b20bb9874304a809dc5580d403ba, type: 3}
+  playerShootSFX: {fileID: 8300000, guid: 4310474905e266640852f43bd609a1a4, type: 3}
+  playerDashSFX: {fileID: 8300000, guid: 88b1cbe3caa3fee4b8b103b5edd7aba9, type: 3}
 --- !u!1 &306388355
 GameObject:
   m_ObjectHideFlags: 0

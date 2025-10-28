@@ -8,6 +8,11 @@ public class UIManager : MonoBehaviour
     public GameObject pauseUI;
     public List<Entity> entities;
 
+    private void Start()
+    {
+        AudioManager.Instance.PlayMusic(AudioManager.Instance.gameSceneBackgroundMusic);
+    }
+
     public void OnGameRestartPress()
     {
         AudioManager.Instance.PlaySFX(AudioManager.Instance.buttonClickSFX);
