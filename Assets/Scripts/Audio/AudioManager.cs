@@ -50,6 +50,8 @@ public class AudioManager : MonoBehaviour
         musicSource.clip = clip;
         if (clip.Equals(gameSceneBackgroundMusic))
             musicSource.volume = 0.5f;
+        else
+            musicSource.volume = 1f;
         musicSource.loop = true;
         musicSource.Play();
     }
