@@ -2,7 +2,7 @@
 
 Move: AWSD
 
-Jump: Space
+Jump: Space (can double jump)
 
 Shoot: L
 
