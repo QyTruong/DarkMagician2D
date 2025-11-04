@@ -30,7 +30,10 @@ public class FlyBoss : Entity
     {
         base.Update();
 
-        
+        if (stats.currentHealth <= 0)
+        {
+            Decay();
+        }
     }
 
     public void AttackSuriken()

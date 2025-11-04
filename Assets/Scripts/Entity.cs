@@ -17,6 +17,7 @@ public class Entity : MonoBehaviour
 
     public int facingDir = 1;
     public bool facingRight = true;
+    public bool isActive;
 
     public event Action OnFlipped;
 
@@ -78,6 +79,12 @@ public class Entity : MonoBehaviour
 
     protected virtual void Decay()
     {
-        Destroy(gameObject);
+        gameObject.SetActive(false);
+        isActive = false;
+    }
+
+    protected void OnEnable()
+    {
+        isActive = true;
     }
 }

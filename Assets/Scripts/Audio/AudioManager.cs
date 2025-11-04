@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -24,11 +26,12 @@ public class AudioManager : MonoBehaviour
 
     private AudioManager()
     {
-
+        
     }
 
     private void Awake()
     {
+        Debug.Log("hello");
         if (instance == null)
         {
             AudioManager.instance = this;

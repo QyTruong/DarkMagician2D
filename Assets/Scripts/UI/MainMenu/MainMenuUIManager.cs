@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuUIManager : MonoBehaviour
 {
-    public GameObject creditPanel; 
-
+    public GameObject creditPanel;
+    
     private void Start()
     {
         AudioManager.Instance.PlayMusic(AudioManager.Instance.mainMenuBackgroundMusic);
@@ -15,12 +15,13 @@ public class MainMenuUIManager : MonoBehaviour
     public void OnPlayButton()
     {
         AudioManager.Instance.PlaySFX(AudioManager.Instance.buttonClickSFX);
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Level1");
         Time.timeScale = 1f;
     }
 
     public void OnCreditButton()
     {
+        Debug.Log("hello");
         AudioManager.Instance.PlaySFX(AudioManager.Instance.buttonClickSFX);
         creditPanel.SetActive(true);
     }

@@ -1,16 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    public GameObject pauseUI;
+    public GameObject pauseMenu;
+    public GameObject endGameMenu;
+    public TextMeshProUGUI txtEndGame;
     public List<Entity> entities;
 
     private void Start()
     {
         AudioManager.Instance.PlayMusic(AudioManager.Instance.gameSceneBackgroundMusic);
+    }
+
+    private void Update()
+    {
+        if (!entities[0].isActive)
+        {
+            endGameMenu.SetActive(true);
+            txtEndGame.text = "You lose!!!";
+        }
+        else if (!entities[1].isActive)
+        {
+            endGameMenu.SetActive(true);
+            txtEndGame.text = "You win!!!";
+        }
     }
 
     public void OnGameRestartPress()
@@ -22,7 +40,7 @@ public class UIManager : MonoBehaviour
     public void OnGameResumePress()
     {
         AudioManager.Instance.PlaySFX(AudioManager.Instance.buttonClickSFX);
-        pauseUI.SetActive(false);
+        pauseMenu.SetActive(false);
 
         OnableActities(true);
 
@@ -38,7 +56,7 @@ public class UIManager : MonoBehaviour
     public void OnGamePausePress()
     {
         AudioManager.Instance.PlaySFX(AudioManager.Instance.buttonClickSFX);
-        pauseUI.SetActive(true);
+        pauseMenu.SetActive(true);
 
         Time.timeScale = 0f;
 
